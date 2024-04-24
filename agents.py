@@ -8,11 +8,15 @@ from tools.search_tools import SearchTools
 
 class MarketingAnalysisAgents:
     def __init__(self):
-        self.llm = ChatOpenAI(
-            model="crewai-llama3-70b",
-            base_url="http://localhost:11434/v1",
-            api_key="NA"
+        self.llm = ChatGroq(
+            api_key=os.getenv("GROQ_API_KEY"),
+            model="llama3-70b-8192"
         )
+        # self.llm = ChatOpenAI(
+        #     model="crewai-llama3-8b",
+        #     base_url="http://localhost:11434/v1",
+        #     api_key="NA"
+        # )
 
     def product_competitor_agent(self):
         return Agent(

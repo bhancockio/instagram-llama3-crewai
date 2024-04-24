@@ -37,7 +37,9 @@ copy_crew = Crew(
         campaign_development,
         write_copy
     ],
-    verbose=True
+    verbose=True,
+    # Remove this when running locally. This helps prevent rate limiting with groq.
+    max_rpm=1
 )
 
 ad_copy = copy_crew.kickoff()
@@ -60,7 +62,10 @@ image_crew = Crew(
         take_photo,
         approve_photo
     ],
-    verbose=True)
+    verbose=True,
+    # Remove this when running locally. This helps prevent rate limiting with groq.
+    max_rpm=1
+)
 
 image = image_crew.kickoff()
 
