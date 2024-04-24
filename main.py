@@ -1,7 +1,6 @@
 from agents import MarketingAnalysisAgents
 from tasks import MarketingAnalysisTasks
-from crewai import Agent, Crew
-from textwrap import dedent
+from crewai import Crew
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -9,10 +8,6 @@ load_dotenv()
 tasks = MarketingAnalysisTasks()
 agents = MarketingAnalysisAgents()
 
-# print("## Welcome to the marketing Crew")
-# print('-------------------------------')
-# product_website = input("What is the product website you want a marketing strategy for?\n")
-# product_details = input("Any extra details about the product and or the instagram post you want?\n")
 product_website = "www.temperaturecontrolcoffeemug.com"
 product_details = "Our temperature control coffee mug allows you to set your preferred drinking temperature and keep it perfect for up to 3 hours. Ideal for coffee, tea, and other beverages. Features a sleek design with a smart LED display, and it's made from durable stainless steel. Looking to highlight its convenience for busy professionals and its technology in a new Instagram campaign."
 
@@ -65,8 +60,7 @@ image_crew = Crew(
         take_photo,
         approve_photo
     ],
-    verbose=True
-)
+    verbose=True)
 
 image = image_crew.kickoff()
 
